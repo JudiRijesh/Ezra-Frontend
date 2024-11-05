@@ -33,7 +33,7 @@ export const AuthContextProvider = ({ children }) => {
     console.log("Validating token for user", authUser);
 
     axios
-      .get("http://localhost:5005/auth/verify", {
+      .get(`${import.meta.env.VITE_BACKEND_URL}/auth/verify`, {
         headers: { Authorization: `Bearer ${authUser.authToken}` },
       })
       .then((res) => {

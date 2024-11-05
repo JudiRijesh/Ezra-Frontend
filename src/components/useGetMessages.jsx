@@ -15,7 +15,7 @@ useEffect(()=>{
 
             const token = localStorage.getItem('authToken')
             const { data } = await axios.get(
-                `http://localhost:5005/api/messages/${selectedConversation._id}`,
+                `https://ezra-backend-9mjb.onrender.com/api/messages/${selectedConversation._id}`,
                 {
                   headers: {
                     Authorization: `Bearer ${token}`,

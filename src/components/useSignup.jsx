@@ -33,7 +33,7 @@ const useSignup = () => {
 
         setLoading(true)
         try {
-            const res = await axios.post("http://localhost:5005/auth/signup", {
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/signup`, {
                 fullName, 
                 username, 
                 password, 

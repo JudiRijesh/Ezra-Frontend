@@ -23,7 +23,7 @@ const useLogin = () => {
             return 
         setLoading(true)
         try {
-            const res = await axios.post("http://localhost:5005/auth/login", {
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/login`, {
                 username,
                 password
             })

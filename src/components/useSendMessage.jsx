@@ -14,7 +14,7 @@ const useSendMessage = () => {
 
       const token = localStorage.getItem('authToken')
       
-      const { data } = await axios.post(`http://localhost:5005/api/messages/send/${selectedConversation._id}`, 
+      const { data } = await axios.post(`https://ezra-backend-9mjb.onrender.com/api/messages/send/${selectedConversation._id}`, 
         {message},
         {
           headers: {

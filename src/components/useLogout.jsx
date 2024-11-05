@@ -13,7 +13,7 @@ const useLogout = () => {
     const logout = async () => {
         setLoading(true);
         try {
-            const res = await axios.post("http://localhost:5005/auth/logout", {
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/logout`, {
                
             });
            

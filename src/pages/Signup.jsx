@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import GenderCheckbox from './GenderCheckbox'
 import { Link } from 'react-router-dom'
 import useSignup from '../components/useSignup'
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 function Signup() {
 
@@ -14,6 +15,9 @@ function Signup() {
     gender:""
 
   })
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); 
 
   const {loading,signup} = useSignup()
 
@@ -49,17 +53,29 @@ function Signup() {
           </div>
 
           <div>
-          <label className='label p-2'>
-            <span className='text-base label-text'>Password</span>
-          </label>
-          <input type='password' placeholder='Enter Password' className='w-full input input-bordered h-10' value={inputs.password} onChange={(e)=> setInputs({...inputs,password: e.target.value})}/>
+            <label className='label p-2'>
+              <span className='text-base label-text'>Password</span>
+            </label>
+            <div className="relative">
+              <input type={showPassword ? 'text' : 'password'} placeholder='Enter Password' className='w-full input input-bordered h-10 pr-10' value={inputs.password}
+                onChange={(e) => setInputs({ ...inputs, password: e.target.value })}/>
+              <button type="button" className="absolute inset-y-0 right-0 pr-3 flex items-center text-green-900" onClick={() => setShowPassword((prev) => !prev)}>
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
+            </div>
           </div>
 
           <div>
-          <label className='label p-2'>
-            <span className='text-base label-text'>Confirm Password</span>
-          </label>
-          <input type='password' placeholder='Confirm Password' className='w-full input input-bordered h-10'value={inputs.confirmPassword} onChange={(e)=> setInputs({...inputs, confirmPassword: e.target.value})} />
+            <label className='label p-2'>
+              <span className='text-base label-text'>Confirm Password</span>
+            </label>
+            <div className="relative">
+              <input type={showConfirmPassword ? 'text' : 'password'} placeholder='Confirm Password' className='w-full input input-bordered h-10 pr-10' value={inputs.confirmPassword}
+                onChange={(e) => setInputs({ ...inputs, confirmPassword: e.target.value })} />
+              <button type="button"  className="absolute inset-y-0 right-0 pr-3 flex items-center text-green-900" onClick={() => setShowConfirmPassword((prev) => !prev)}>
+                {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
+            </div>
           </div>
 
           <GenderCheckbox onCheckboxChange = {handleCheckboxChange} selectedGender={inputs.gender} />

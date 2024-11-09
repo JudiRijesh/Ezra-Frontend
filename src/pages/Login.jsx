@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import useLogin from '../components/useLogin'
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 function Login() {
 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const [showPassword, setShowPassword] = useState(false)
 
   const {loading, login} = useLogin()
 
@@ -29,11 +31,15 @@ function Login() {
         <input type='text' placeholder='Enter Username' className='w-full input input-bordered h-10' value={username} onChange={(e) => setUsername(e.target.value)}/>
     </div>
     <div>
-        <label className='label p-5'>
-            <span className='text-base label-text'>Password</span>
-        </label>
-        <input type='password' placeholder='Enter Password' className='w-full input input-bordered h-10' value={password} onChange={(e) => setPassword(e.target.value)} />
-    </div>
+            <label className='label p-5'>
+              <span className='text-base label-text'>Password</span>
+            </label>
+            <div className="relative">
+              <input  type={showPassword ? 'text' : 'password'} placeholder='Enter Password' className='w-full input input-bordered h-10 pr-10' value={password} onChange={(e) => setPassword(e.target.value)} />
+              <button type="button" className="absolute inset-y-0 right-0 pr-3 flex items-center text-green-900" onClick={() => setShowPassword((prev) => !prev)} > {showPassword ? <FaEyeSlash /> : <FaEye />}</button>
+            </div>
+          </div>
+
 
     <Link to='/signup' className='label p-5 text-sm hover:underline hover:text-green-900 mt-2 inline-block'>
     {"Don't"} have an account ?

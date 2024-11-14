@@ -50,7 +50,7 @@ function Login() {
     </form>
 
     </div>
-    <a href='https://ezrah-help.netlify.app' className='pt-10 text-green-900'>Back to EZRAH</a>
+    <a href='https://ezrah-help.netlify.app' className='pt-10 text-green-900 font-bold'>Back to EZRAH</a>
 
     </div>
   )

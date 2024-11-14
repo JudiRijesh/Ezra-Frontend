@@ -44,13 +44,13 @@ function Login() {
     <Link to='/signup' className='label p-5 text-sm hover:underline hover:text-green-900 mt-2 inline-block'>
     {"Don't"} have an account ?
    </Link>
-    <button className='btn btn-block btn-sm mt-2 border border-green-900 hover:bg-green-900 hover:text-white' disabled={loading}>
+       <button className='btn btn-block btn-sm mt-2 border border-green-900 hover:bg-green-900 hover:text-white' disabled={loading}>
     {loading ? <span className='loading loading-spinner'></span> :"Login"}
     </button>
     </form>
 
     </div>
-
+    <a href='https://ezrah-help.netlify.app' className='pt-10 text-green-900'>Back to EZRAH</a>
 
     </div>
   )
